@@ -24,7 +24,8 @@ exports.up = function(knex) {
       .notNullable()
       .unique();
     tbl
-      .string('notes', 128);
+      .string('notes', 128)
+      .notNullable();
     tbl
       .boolean('is_complete');
     tbl
