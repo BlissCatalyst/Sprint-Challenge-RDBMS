@@ -1,5 +1,5 @@
 {
-  "name": "Sprint10",
+  "name": "sprint10",
   "version": "0.0.1",
   "description": "Sprint10",
   "private": true,
@@ -17,5 +17,8 @@
   "devDependencies": {
     "knex-cleaner": "^1.1.4",
     "nodemon": "^1.18.10"
-  }
+  },
+  "repository": "https://github.com/BlissCatalyst/Sprint-Challenge-RDBMS.git",
+  "author": "Logan Hufstetler <logan.hufstetler@gmail.com>",
+  "license": "MIT"
 }
