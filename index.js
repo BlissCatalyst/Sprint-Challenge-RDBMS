@@ -9,19 +9,23 @@ server.use(helmet());
 server.use(express.json());
 
 // ********** ENDPOINTS **********
-server.get('/api/projects', async (req, res) => {
-  try {
-    // const all = await Roles.find();
-    res.status(200).json(all);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
 server.get('/api/projects/project/:projectId', async (req, res) => {
   try { 
     // const project = await Roles.findById(req.params.projectId);
-    res.status(200).json(project);
+    if(req.params.projectId) {
+      const [id] = req.params.projectId;
+      const project = await function() {
+        return db('projects', 'actions')
+          .join('actions', 'projects.id', '=', 'actions.project_id')
+          .where({ id })
+          .first();
+      }
+      res.status(200).json(project);
+    } else {
+      res.status(404).json({
+        error: "does not exist"
+      });
+    }
   } catch (error) {
     res.status(500).json(error);
   }
