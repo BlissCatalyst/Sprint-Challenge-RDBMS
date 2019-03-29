@@ -1,0 +1,12 @@
+const express = require('express');
+const helmet = require('helmet');
+
+const server = express();
+
+server.use(helmet());
+server.use(express.json());
+
+const port = process.env.PORT || 4444;
+server.listen(port, () => 
+  console.log(`\n** API running on http://localhost:${port} **\n`)
+);
