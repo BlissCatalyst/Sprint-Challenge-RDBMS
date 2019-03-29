@@ -30,12 +30,9 @@ exports.up = function(knex) {
       .boolean('is_complete');
     tbl
       .integer('project_id')
-      .unsigned()
-      .references('id')
-      .inTable('projects');
   })
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('projects');
+  return knex.schema.dropTableIfExists('projects').dropTableIfExists('actions');
 };

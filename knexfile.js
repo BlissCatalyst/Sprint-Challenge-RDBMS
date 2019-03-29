@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './database/sprintDb'
+      filename: './database/sprintDb.db3'
     },
     useNullAsDefault: true,
     migrations: {
